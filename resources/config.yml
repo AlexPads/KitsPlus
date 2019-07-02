@@ -1,0 +1,98 @@
+Version: 1 #DO NOT TOUCH THIS!
+
+Prefix: "§l§f[§r§l§aKits§ePlus!§f]§r "
+
+# Options are,
+# Regular = Normal like AdvancedKits or KitUI (UI Can Be Disabled and Exchanged for a List in chat)
+# Chest = The Kit will Be Given to the Player Inside of a Chest UI or List to Select
+# Enchantments Below
+# -----------------------------------
+#  PROTECTION = 0;
+#  FIRE_PROTECTION = 1;
+#  BLAST_PROTECTION = 3;
+#  PROJECTILE_PROTECTION = 4;
+#  THORNS = 5;
+#  RESPIRATION = 6;
+#  DEPTH_STRIDER = 7;
+#  AQUA_AFFINITY = 8;
+#  SHARPNESS = 9;
+#  SMITE = 10;
+#  BANE_OF_ARTHROPODS = 11;
+#  KNOCKBACK = 12;
+#  FIRE_ASPECT = 13;
+#  LOOTING = 14;
+#  EFFICIENCY = 15;
+#  SILK_TOUCH = 16;
+#  UNBREAKING = 17;
+#  FORTUNE = 18;
+#  POWER = 19;
+#  PUNCH = 20;
+#  FLAME = 21;
+#  INFINITY = 22;
+#  LUCK_OF_THE_SEA = 23;
+#  LURE = 24;
+#  FROST_WALKER = 25;
+#  MENDING = 26;
+#  BINDING = 27;
+#  VANISHING = 28;
+#  IMPALING = 29;
+#  RIPTIDE = 30;
+#  LOYALTY = 31;
+#  CHANNELING = 32;
+# -----------------------------------
+
+#options are "Body" or "Chest" Chest is default. Body will work just like KitUI or Advanced Kits.
+Type: "Chest"
+
+#options are "List", to get a chat list or "UI" (default is UI), to get a Forms Based UI to select a Kit
+ListType: "UI"
+
+#Inv Options are "INV" adds all items to INV (default is INV) or Body adds items to body WARNING will replace current armor!
+GiveType: "INV"
+
+ExitButton: true
+ExitButtonText: "§l§cEXIT"
+ExitMessage: true
+ExitMessageCustom: "Thank You for Checking Out our Kits!"
+YouDontOwn: "§r§cYou Don't Have This Kit!"
+NoPermission: "ou dont have Permission to use that Kit!"
+OnCooldown: "§r§cThis Kit is on CoolDown!"
+OnCooldown2: "§r§cThis kit has {timeleft} seconds left on CoolDown!"
+KitNotExist: "That Kit does not Exits! Please Pick another Kit or Make sure that you have spelled it correctly!"
+NotEnoughMoney: "§rYou Don't Have Enough Money for that kit!"
+
+#List Settings Top and Bottom can icclude {pluginprefix}
+TopRowList: "------- {pluginprefix}-------"
+ListNumbers: true
+ListNumberColor: "§b"
+BottomRowList: "------- {pluginprefix}-------"
+
+# add UNLIMITED KITS here!
+Kits:
+  Starter:
+    Cost: 25
+    Permission: "kit.starter"
+    KitFormName: "Starter"
+    KitChestName: "§l§f[§aStarter§f]§r"
+    # Add Extra Enchantments Using a (,) In between each Enchant! the Number Behind the corresponding (,) on the Other Section is the Level! (Supports PiggyCustomEnchants!!)
+    Helmet: "310:0:1:default:0,5:2,1"
+    Chestplate: "311:0:1:default:0:2"
+    Leggings: "312:0:1:default:0:2"
+    Boots: "313:0:1:default:0:2"
+    CooldownTime: 25
+    Items:
+      - "267:0:1:default:9:2"
+      - "257:0:1:default:9:2"
+  Iron:
+    Cost: 25
+    Permission: "kit.iron"
+    KitFormName: "Iron"
+    KitChestName: "§l§f[§aIron§f]§r"
+    Helmet: "310:0:1:default:0,5:2,1"
+    Chestplate: "311:0:1:default:0:2"
+    Leggings: "312:0:1:default:0:2"
+    Boots: "313:0:1:default:0,Gears:2,4"
+    CooldownTime: 25
+    Items:
+      - "267:0:1:default:9:2"
+      - "257:0:1:default:9:2"

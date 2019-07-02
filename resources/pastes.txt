@@ -1,0 +1,102 @@
+ switch($command) {
+            case "kit":
+                if ($sender->hasPermission("kit.starter")) {
+                    $sword = Item::get(268, 0, 1);
+                    $sword->setCustomName("");
+                    $pick = Item::get(270, 0, 1);
+                    $pick->setCustomName("§eStarter Pick!");
+                    $nbt = new CompoundTag("BlockEntityTag", [new ListTag("Items", [$sword->nbtSerialize(0), $pick->nbtSerialize(1)])]);
+                    $chest = ItemFactory::get(Item::CHEST, 0, 1);
+                    $chest->setNamedTagEntry($nbt);
+                    $chest->setCustomName("§l§d[§r§eStarter §6Kit§l§d]§r");
+                    $sender->getInventory()->addItem($chest);
+                    return true;
+                }else{
+                    return true;
+                }
+            case "iron":
+                if ($sender->hasPermission("kit.iron")) {
+                    $helmet = Item::get(306, 0, 1);
+                    $helmet->setCustomName("Iron Helmet");
+                    $enchantment = Enchantment::getEnchantment(17);
+                    $enchInstance = new EnchantmentInstance($enchantment, 2);
+                    $chestplate = Item::get(307, 0, 1);
+                    $chestplate->setCustomName("Iron Chestplate")->addEnchantment($enchInstance);
+                    $leggings = Item::get(308, 0, 1);
+                    $leggings->setCustomName("Iron Leggings");
+                    $boots = Item::get(309, 0, 1);
+                    $boots->setCustomName("Super Iron boots");
+                    $enchantment = Enchantment::getEnchantment(9);
+                    $enchInstance = new EnchantmentInstance($enchantment, 2);
+                    $sword = Item::get(267, 0, 1);
+                    $sword->setCustomName("§eSword Of §7Despair")->addEnchantment($enchInstance);
+                    $enchantment = Enchantment::getEnchantment(18);
+                    $enchInstance = new EnchantmentInstance($enchantment, 2);
+                    $pick = Item::get(257, 0, 1);
+                    $pick->setCustomName("§eIron Pick!")->addEnchantment($enchInstance);
+                    $nbt = new CompoundTag("BlockEntityTag", [new ListTag("Items", [$helmet->nbtSerialize(0), $chestplate->nbtSerialize(1), $leggings->nbtSerialize(2), $boots->nbtSerialize(3), $sword->nbtSerialize(4), $pick->nbtSerialize(5)])]);
+                    $chest = ItemFactory::get(Item::CHEST, 0, 1);
+                    $chest->setNamedTagEntry($nbt);
+                    $chest->setCustomName("§l§f[§eIron §6Kit§f]§r");
+                    $sender->getInventory()->addItem($chest);
+                    return true;
+                }else{
+                    $sender->sendMessage("You need Permission to Use this Kit!");
+                    return true;
+                }
+            case "endermite":
+                if ($sender->hasPermission("kit.endermite")) {
+                    $enchantment = Enchantment::getEnchantment(0);
+                    $enchInstance1 = new EnchantmentInstance($enchantment, 5);
+                    $enchantment = Enchantment::getEnchantment(17);
+                    $enchInstance = new EnchantmentInstance($enchantment, 10);
+                    $helmet = Item::get(310, 0, 1);
+                    $helmet->setCustomName("Endermite Helmet")->addEnchantment($enchInstance, $enchInstance1);
+
+                    $enchantment = Enchantment::getEnchantment(0);
+                    $enchInstance = new EnchantmentInstance($enchantment, 5);
+                    $enchantment = Enchantment::getEnchantment(17);
+                    $enchInstance1 = new EnchantmentInstance($enchantment, 10);
+                    $chestplate = Item::get(311, 0, 1);
+                    $chestplate->setCustomName("Endermite Chestplate")->addEnchantment($enchInstance, $enchInstance1);
+
+                    $enchantment = Enchantment::getEnchantment(0);
+                    $enchInstance = new EnchantmentInstance($enchantment, 5);
+                    $enchantment = Enchantment::getEnchantment(17);
+                    $enchInstance1 = new EnchantmentInstance($enchantment, 10);
+                    $leggings = Item::get(312, 0, 1);
+                    $leggings->setCustomName("Endermite Leggings")->addEnchantment($enchInstance, $enchInstance1);
+
+                    $enchantment = Enchantment::getEnchantment(0);
+                    $enchInstance1 = new EnchantmentInstance($enchantment, 5);
+                    $enchantment = Enchantment::getEnchantment(17);
+                    $enchInstance = new EnchantmentInstance($enchantment, 10);
+                    $boots = Item::get(313, 0, 1);
+                    $boots->setCustomName("Ultimate Endermite boots")->addEnchantment($enchInstance, $enchInstance1);
+
+                    $enchantment = Enchantment::getEnchantment(9);
+                    $enchInstance1 = new EnchantmentInstance($enchantment, 6);
+                    $enchantment = Enchantment::getEnchantment(17);
+                    $enchInstance = new EnchantmentInstance($enchantment, 10);
+                    $sword = Item::get(276, 0, 1);
+                    $sword->setCustomName("§eEndermite")->addEnchantment($enchInstance, $enchInstance1);
+
+                    $enchantment = Enchantment::getEnchantment(15);
+                    $enchInstance1 = new EnchantmentInstance($enchantment, 6);
+                    $enchantment = Enchantment::getEnchantment(17);
+                    $enchInstance = new EnchantmentInstance($enchantment, 10);
+                    $pick = Item::get(278, 0, 1);
+                    $pick->setCustomName("§eEndermite Pick!")->addEnchantment($enchInstance, $enchInstance1);
+
+                    $nbt = new CompoundTag("BlockEntityTag", [new ListTag("Items", [$helmet->nbtSerialize(0), $chestplate->nbtSerialize(1), $leggings->nbtSerialize(2), $boots->nbtSerialize(3), $sword->nbtSerialize(4), $pick->nbtSerialize(5)])]);
+                    $chest = ItemFactory::get(Item::CHEST, 0, 1);
+                    $chest->setNamedTagEntry($nbt);
+                    $chest->setCustomName("§l§d[§r§eEndermite Kit§l§d]§r");
+                    $sender->getInventory()->addItem($chest);
+                }else{
+                    $sender->sendMessage("You need permission to use that kit!");
+                    return true;
+                }
+                return true;
+        }
+    }

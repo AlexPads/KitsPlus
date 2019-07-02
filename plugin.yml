@@ -1,0 +1,10 @@
+name: ChestKits
+description: ChestKit
+main: SaltyPixelDevz\ChestKits\Main
+author: SaltyPixelDevz / (AlexPads)
+version: 1.0
+api: [3.0.0]
+
+commands:
+  kit:
+    description: "List kits or Gives GUI"
