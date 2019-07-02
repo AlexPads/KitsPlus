@@ -1,5 +1,3 @@
-## KitsPlus!
-
 ## Usage
 A Simple and Cutomizeable Plugin by SaltyPixelDevz that Uses LibformAPI and Supports PiggyCustomEnchants! <br><br>All from The same Team to bring you CustomShopUI!
 
