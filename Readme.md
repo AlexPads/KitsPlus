@@ -1,6 +1,9 @@
-## Usage
-A Simple and Cutomizeable Plugin by SaltyPixelDevz that Uses LibformAPI and Supports PiggyCustomEnchants! <br><br>All from The same Team to bring you CustomShopUI!
 
+
+
+A Simple and Cutomizeable Plugin by SaltyPixelDevz that Uses LibformAPI and Supports PiggyCustomEnchants! <br><br>All from The same Team to bring you CustomShopUI!
+[![](https://poggit.pmmp.io/shield.state/ChestKits)](https://poggit.pmmp.io/p/ChestKits)
+<a href="https://poggit.pmmp.io/p/ChestKits"><img src="https://poggit.pmmp.io/shield.state/ChestKits"></a>
 
 ## Includes
 This Plugin Includes:<br>
