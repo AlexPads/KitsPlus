@@ -1,10 +1,10 @@
-#KitsPlus!
+## KitsPlus!
 
-##Usage
+## Usage
 A Simple and Cutomizeable Plugin by SaltyPixelDevz that Uses LibformAPI and Supports PiggyCustomEnchants! <br><br>All from The same Team to bring you CustomShopUI!
 
 
-##Includes
+## Includes
 This Plugin Includes:<br>
 * Chest Kits
 * Custom Messages
@@ -14,7 +14,7 @@ This Plugin Includes:<br>
 * Suports PiggyCustomEnchants!
 * Price Per Kit!
 
-##Configuration
+## Configuration
 The In Config Notes and Premade Features Show what to do on a Greater Scale!
 ```
 Prefix: "§l§f[§r§l§aKits§ePlus!§f]§r "
@@ -62,7 +62,7 @@ Kits:
       - ""
 ```
 
-##About
+## About
 If you need anything or Have a Question Make and Issue on the GitHub!!<br>
 If you would Like a Great Time and Good Hosting Join <br>
 Use Our Live chat or Join our Discord or Make and Issue on the GitHub for Help!<br>
