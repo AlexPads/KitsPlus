@@ -15,6 +15,11 @@ This Plugin Includes:<br>
 * Suports PiggyCustomEnchants!
 * Price Per Kit!
 
+## Permissions
+In the Config for Every Kit there is a permission you must add that permission to every player that needs the kit.
+Ex.. kit.starter is the default permission for the starter kit.
+
+
 ## Configuration
 The In Config Notes and Premade Features Show what to do on a Greater Scale!
 ```
