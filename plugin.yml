@@ -1,4 +1,4 @@
-name: KitsPlus
+name: KitsG
 description: Simple Chest Kits with Fully customizeable Everything!
 main: SaltyPixelDevz\ChestKits\Main
 author: SaltyPixelDevz / (AlexPads)
@@ -6,5 +6,5 @@ version: 1.0.1
 api: [3.0.0]
 
 commands:
-  kit:
-    description: "List kits or Gives GUI"
+  gkit:
+    description: "Claim a GKit"
