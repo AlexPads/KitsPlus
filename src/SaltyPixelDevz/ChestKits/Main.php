@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace SaltyPixelDevz\ChestKits;
+namespace SaltyPielDevz\ChestKits;
 
 use jojoe77777\FormAPI\SimpleForm;
 use onebone\economyapi\EconomyAPI;
