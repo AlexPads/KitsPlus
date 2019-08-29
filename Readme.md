@@ -2,8 +2,8 @@
 
 
 A Simple and Cutomizeable Plugin by WitherXTeam that Uses FormAPI and Supports PiggyCustomEnchants! <br><br>All from The same Team to bring you CustomShopUI!
-[![](https://poggit.pmmp.io/shield.state/ChestKits)](https://poggit.pmmp.io/p/ChestKits)
-<a href="https://poggit.pmmp.io/p/ChestKits"><img src="https://poggit.pmmp.io/shield.state/ChestKits"></a>
+[![](https://poggit.pmmp.io/shield.state/KitsPlus)](https://poggit.pmmp.io/p/KitsPlus)
+<a href="https://poggit.pmmp.io/p/KitsPlus"><img src="https://poggit.pmmp.io/shield.state/KitsPlus"></a>
 
 ## Includes
 This Plugin Includes:<br>
