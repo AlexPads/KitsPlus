@@ -1,7 +1,7 @@
 
 
 
-A Simple and Cutomizeable Plugin by SaltyPixelDevz that Uses LibformAPI and Supports PiggyCustomEnchants! <br><br>All from The same Team to bring you CustomShopUI!
+A Simple and Cutomizeable Plugin by WitherXTeam that Uses FormAPI and Supports PiggyCustomEnchants! <br><br>All from The same Team to bring you CustomShopUI!
 [![](https://poggit.pmmp.io/shield.state/ChestKits)](https://poggit.pmmp.io/p/ChestKits)
 <a href="https://poggit.pmmp.io/p/ChestKits"><img src="https://poggit.pmmp.io/shield.state/ChestKits"></a>
 
@@ -72,5 +72,5 @@ Kits:
 If you need anything or Have a Question Make and Issue on the GitHub!!<br>
 If you would Like a Great Time and Good Hosting Join <br>
 Use Our Live chat or Join our Discord or Make and Issue on the GitHub for Help!<br>
-https://saltypixel.net<br>
-we offer Hosting of Many games and Our Own server! (hub.saltypixel.net)
+https://witherhosting.com<br>
+we offer Hosting of Many games and Our Own server! (play.wither.fun)

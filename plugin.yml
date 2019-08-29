@@ -2,9 +2,14 @@ name: KitsPlus
 description: Simple Chest Kits with Fully customizeable Everything!
 main: SaltyPixelDevz\ChestKits\Main
 author: SaltyPixelDevz / (AlexPads)
-version: 1.0.1
+version: 1.0.5
 api: [3.0.0]
-
+depend:
+  - EconomyAPI
+  - FormAPI
 commands:
   kit:
     description: "List kits or Gives GUI"
+  kitgive:
+    description: "Give a Player a Kit"
+    permission: kp.kitgive

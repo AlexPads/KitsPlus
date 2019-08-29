@@ -1,4 +1,4 @@
-Version: 1 #DO NOT TOUCH THIS!
+Version: 2 #DO NOT TOUCH THIS!
 
 Prefix: "§l§f[§r§l§aKits§ePlus!§f]§r "
 
@@ -53,13 +53,16 @@ GiveType: "INV"
 ExitButton: true
 ExitButtonText: "§l§cEXIT"
 ExitMessage: true
+FormTitle: "FormTitle (KitsPlus)"
 ExitMessageCustom: "Thank You for Checking Out our Kits!"
 YouDontOwn: "§r§cYou Don't Have This Kit!"
-NoPermission: "ou dont have Permission to use that Kit!"
+NoPermission: "you dont have Permission to use that Kit!"
 OnCooldown: "§r§cThis Kit is on CoolDown!"
 OnCooldown2: "§r§cThis kit has {timeleft} seconds left on CoolDown!"
 KitNotExist: "That Kit does not Exits! Please Pick another Kit or Make sure that you have spelled it correctly!"
 NotEnoughMoney: "§rYou Don't Have Enough Money for that kit!"
+GivenKitMessage: "You were Given kit {kit}!"
+PlayerDoesNotExist: "That player does not exist! "
 
 #List Settings Top and Bottom can icclude {pluginprefix}
 TopRowList: "------- {pluginprefix}-------"

@@ -37,15 +37,15 @@ class Main extends PluginBase
     public function onCommand(CommandSender $sender, Command $command, string $label, array $args): bool
     {
 
-        if (!$sender instanceof Player) {
-            $sender->sendMessage(TF::RED . "Command must be used in-game.");
-            return true;
-        }
 
         //Sets Config for NO Reloads/Restarts!
         self::$c = yaml_parse_file($this->getDataFolder() . "config.yml");
         switch ($command) {
             case "kit":
+                if (!$sender instanceof Player) {
+                    $sender->sendMessage(TF::RED . "Command must be used in-game.");
+                    break;
+                }
                 if (self::$c["ListType"] === "UI") {
                     $this->ChestKits($sender);
                 }
@@ -55,10 +55,42 @@ class Main extends PluginBase
                 if (!empty($args) && self::$c["ListType"] === "List") {
                     $this->typeList($sender, $args);
                 }
+                break;
+            case "kitgive":
+                if ($sender->hasPermission("kp.kitgive")) {
+                    if (empty($args)) {
+                        $this->typeList($sender, $args);
+                        break;
+                    } else {
+                        $this->GiveKits($sender, $args);
+                    }
+                }else{
+                    $sender->sendMessage(self::$prefix . "You dont have permission to run that command!");
+                }
+                break;
         }
         return false;
     }
 
+    public function GiveKits(Player $player, $args){
+        $kits = self::$c["Kits"];
+        if (!empty($args) && count($args) >= 1){
+            if (array_key_exists($args[0], $kits)){
+                $kits["$args[0]"];
+                if (isset($args[1])){
+                    $send = $this->getServer()->getPlayerExact($args[1]);
+                    $this->typeList($send, $args);
+                }else{
+                    $player->sendMessage(self::$prefix . self::$c["PlayerDoesNotExist"]);
+                }
+            }else {
+                $player->sendMessage(self::$prefix . self::$c["KitNotExist"]);
+            }
+        }else{
+            $player->sendMessage(self::$prefix . " You may only give one kit at a time.");
+        }
+
+    }
 
     public function ChestKits(Player $player)
     {
@@ -219,7 +251,7 @@ class Main extends PluginBase
                     $form->addButton($expanded["KitFormName"] . "\n" . self::$c["OnCooldown"]);
                 }
             }
-            $form->setTitle(self::$prefix);
+            $form->setTitle(self::$c["FormTitle"]);
             $player->sendform($form);
         }
     }
