@@ -6,7 +6,6 @@ version: 1.0.5
 api: [3.0.0]
 depend:
   - EconomyAPI
-  - FormAPI
 commands:
   kit:
     description: "List kits or Gives GUI"
