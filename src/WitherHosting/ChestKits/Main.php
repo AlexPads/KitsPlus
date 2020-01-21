@@ -2,8 +2,9 @@
 
 declare(strict_types=1);
 
-namespace SaltyPixelDevz\ChestKits;
+namespace WitherHosting\ChestKits;
 
+use DaPigGuy\PiggyCustomEnchants\CustomEnchantManager;
 use jojoe77777\FormAPI\SimpleForm;
 use onebone\economyapi\EconomyAPI;
 use pocketmine\{Player};
@@ -109,7 +110,12 @@ class Main extends PluginBase
                         $player->sendMessage(self::$prefix . self::$c["ExitMessageCustom"]);
                     }
                     if (self::$c["ExitButton"] === True) {
-                        $data = $data - 1;
+                    	// Fix back Button v1.0.6
+                    	if ($data == 0 || $data == null){
+                    		return;
+						}else {
+							$data = $data - 1;
+						}
                     }
 
                     $kit = $kits[$data];
@@ -174,7 +180,7 @@ class Main extends PluginBase
 
                                     //<---- Items ---->
                                     $i = $kit["Items"];
-                                    $count = 8;
+                                    $count = 4;
                                     foreach ($i as $all) {
                                         $item = explode(":", $all);
                                         $in = Item::get((int)$item[0], (int)$item[1], (int)$item[2]);
@@ -281,8 +287,13 @@ class Main extends PluginBase
     public function typeList(Player $player, $args)
     {
         $kits = self::$c["Kits"];
-        $selected = $args[0];
-        $kit = $kits[$selected];
+        if (empty($args) || $args == null){
+        	$player->sendMessage(self::$prefix . "You must define a kit to give!");
+        	return;
+		}else {
+			$selected = $args[0];
+			$kit = $kits[$selected];
+		}
 
         //sets / tests for Cooldown
         if ($player->hasPermission($kit["Permission"])) {
@@ -346,7 +357,7 @@ class Main extends PluginBase
 
                             //<---- Items ---->
                             $i = $kit["Items"];
-                            $count = 8;
+                            $count = 4;
                             foreach ($i as $all) {
                                 $item = explode(":", $all);
                                 $in = Item::get((int)$item[0], (int)$item[1], (int)$item[2]);
@@ -433,10 +444,13 @@ class Main extends PluginBase
                         $lcount = $lcount + 1;
                     }
                 }else{
-                    //Should Deal with PiggyCustomEnchants
+                	// $in is the item.
+					// $e is the enchantment.
+                    //Should Deal with PiggyCustomEnchants Update.
                     $l = explode(",", $item[5]);
-                    $ce = $this->getServer()->getPluginManager()->getPlugin("PiggyCustomEnchants");
-                    $ce->addEnchantment($in, $e, (int)$l[(int)$lcount], true);
+					$in->addEnchantment(new EnchantmentInstance(CustomEnchantManager::getEnchantmentByName((string)$e), (int)$l[(int)$lcount]));
+
+                    //$in->addEnchantment($id, (int)$l[(int)$lcount], true);
                     $lcount = $lcount + 1;
                 }
             }

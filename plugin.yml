@@ -1,11 +1,14 @@
 name: KitsPlus
 description: Simple Chest Kits with Fully customizeable Everything!
-main: SaltyPixelDevz\ChestKits\Main
-author: SaltyPixelDevz / (AlexPads)
-version: 1.0.5
-api: [3.0.0]
+main: WitherHosting\ChestKits\Main
+author: WitherHosting / (AlexPads)
+version: 1.0.6
+api: 3.0.0
 depend:
   - EconomyAPI
+  - PurePerms
+softdepend:
+  - PiggyCustomEnchants
 commands:
   kit:
     description: "List kits or Gives GUI"
