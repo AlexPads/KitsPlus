@@ -58,16 +58,20 @@ class Main extends PluginBase
                 }
                 break;
             case "kitgive":
-                if ($sender->hasPermission("kp.kitgive")) {
-                    if (empty($args)) {
-                        $this->typeList($sender, $args);
-                        break;
-                    } else {
-                        $this->GiveKits($sender, $args);
-                    }
-                }else{
-                    $sender->sendMessage(self::$prefix . "You dont have permission to run that command!");
-                }
+		if ($sender instanceof Player){
+                	if ($sender->hasPermission("kp.kitgive")) {
+                    		if (empty($args)) {
+                        		$this->typeList($sender, $args);
+                        		break;
+                    		} else {
+                        		$this->GiveKits($sender, $args);
+                    		}
+                	}else{
+                    		$sender->sendMessage(self::$prefix . "You dont have permission to run this command!");
+                	}
+		} else {
+			$this->getLogger()->notice(self::$prefix . "This command can only be run in-game.");
+		}
                 break;
         }
         return false;
