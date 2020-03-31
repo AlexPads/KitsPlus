@@ -15,3 +15,5 @@ commands:
   kitgive:
     description: "Give a Player a Kit"
     permission: kp.kitgive
+  kitlist:
+    description: "Shows console users what kits are available"

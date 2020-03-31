@@ -8,7 +8,7 @@ use DaPigGuy\PiggyCustomEnchants\CustomEnchantManager;
 use jojoe77777\FormAPI\SimpleForm;
 use onebone\economyapi\EconomyAPI;
 use pocketmine\{Player};
-use pocketmine\command\{Command, CommandSender};
+use pocketmine\command\{Command, CommandSender, ConsoleCommandSender};
 use pocketmine\item\{Item, ItemFactory};
 use pocketmine\item\enchantment\Enchantment;
 use pocketmine\item\enchantment\EnchantmentInstance;
@@ -58,17 +58,42 @@ class Main extends PluginBase
                 }
                 break;
             case "kitgive":
+				if (!$sender instanceof Player) {
+					//$sender->sendMessage(TF::RED . "Command must be used in-game.");
+					if (empty($args)) {
+						$this->typeList($sender, $args);
+						break;
+					} else {
+						if (empty($args[1])){
+							$this->getLogger()->info(self::$prefix . "You must select a player!");
+						}else {
+							$sender = $this->getServer()->getPlayerExact($args[1]);
+							if ($sender == null){
+								$this->getLogger()->warning(self::$prefix . "That player does not exist!");
+								return true;
+							}
+							$args[3] = "console";
+							$this->GiveKits($sender, $args);
+						}
+					}
+					break;
+				}
                 if ($sender->hasPermission("kp.kitgive")) {
                     if (empty($args)) {
                         $this->typeList($sender, $args);
                         break;
                     } else {
+                    	$args[3] = "player";
                         $this->GiveKits($sender, $args);
                     }
                 }else{
                     $sender->sendMessage(self::$prefix . "You dont have permission to run that command!");
                 }
                 break;
+			case "kitlist":
+				if ($sender instanceof ConsoleCommandSender){
+					$this->Kits($sender);
+				}
         }
         return false;
     }
@@ -85,7 +110,11 @@ class Main extends PluginBase
                     $player->sendMessage(self::$prefix . self::$c["PlayerDoesNotExist"]);
                 }
             }else {
-                $player->sendMessage(self::$prefix . self::$c["KitNotExist"]);
+            	if (!empty($args[3]) && $args[3] == "console"){
+            		$this->getLogger()->info(self::$prefix . self::$c["KitNotExist"]);
+            	} else {
+					$player->sendMessage(self::$prefix . self::$c["KitNotExist"]);
+				}
             }
         }else{
             $player->sendMessage(self::$prefix . " You may only give one kit at a time.");
@@ -263,9 +292,9 @@ class Main extends PluginBase
     }
 
 
-    public function Kits(Player $player)
+    public function Kits($player)
     {
-        if (self::$c["ListType"] === "List") {
+        if (self::$c["ListType"] === "List" && $player instanceof Player) {
             $kits = self::$c["Kits"];
             $player->sendMessage(str_replace("{pluginprefix}", self::$prefix, self::$c["TopRowList"]));
             $count = 1;
@@ -280,19 +309,43 @@ class Main extends PluginBase
                 }
             }
             $player->sendMessage(str_replace("{pluginprefix}", self::$prefix, self::$c["BottomRowList"]));
-        }
+        } else {
+			$kits = self::$c["Kits"];
+			$this->getLogger()->info(str_replace("{pluginprefix}", self::$prefix, self::$c["TopRowList"]));
+			$count = 1;
+			foreach ($kits as $name) {
+				$this->getLogger()->info($name["KitFormName"]);
+			}
+			$this->getLogger()->info(str_replace("{pluginprefix}", self::$prefix, self::$c["BottomRowList"]));
+		}
     }
 
 
-    public function typeList(Player $player, $args)
+    public function typeList($player, $args)
     {
-        $kits = self::$c["Kits"];
-        if (empty($args) || $args == null){
-        	$player->sendMessage(self::$prefix . "You must define a kit to give!");
-        	return;
-		}else {
-			$selected = $args[0];
-			$kit = $kits[$selected];
+    	if ($player instanceof Player) {
+			$kits = self::$c["Kits"];
+			if (empty($args) || $args == null) {
+				$player->sendMessage(self::$prefix . "You must define a kit to give!");
+				return;
+			} else {
+				$selected = $args[0];
+				$kit = $kits[$selected];
+			}
+		} else {
+			$kits = self::$c["Kits"];
+			if (empty($args) || $args == null) {
+				$this->getLogger()->info(self::$prefix . "You must define a kit to give!");
+				return;
+			} else {
+				$player = $this->getServer()->getPlayerExact($args[0]);
+				if (empty($args[1])){
+					$this->getLogger()->warning(self:: $prefix . "You must specify a player!");
+					return;
+				}
+				$selected = $args[1];
+				$kit = $kits[$selected];
+			}
 		}
 
         //sets / tests for Cooldown
