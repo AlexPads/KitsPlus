@@ -2,7 +2,7 @@ name: KitsPlus
 description: Simple Chest Kits with Fully customizeable Everything!
 main: WitherHosting\ChestKits\Main
 author: WitherHosting / (AlexPads)
-version: 1.0.6
+version: 1.0.7
 api: 3.0.0
 depend:
   - EconomyAPI
